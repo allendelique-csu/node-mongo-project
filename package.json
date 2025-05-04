@@ -1,0 +1,22 @@
+{
+  "name": "npm-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node index.js"
+  },
+  "keywords": [],
+  "author": "allen_delique",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "body-parser": "^2.2.0",
+    "bootstrap": "^5.3.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.14.1"
+  }
+}
