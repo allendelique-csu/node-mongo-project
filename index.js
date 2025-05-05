@@ -10,7 +10,6 @@ const mongoose = require('mongoose');
 const uri = "mongodb+srv://allendelique:Y8sQFYooNh4VqnZs@cluster0.78hmihb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 const clientOptions = { serverApi: { version: '1', strict: true, deprecationErrors: true } };
 const port = 3000
-const todoModel = require('./models/todo.model.js')
 const axios = require('axios');
 const bodyParser = require("body-parser");
 const LikedImageModel = require("./models/liked-image.model.js");
@@ -57,8 +56,8 @@ app.post('/pastImage', (req, res) => {
     })
 })
 
-app.get('/liked-images', (req, res) => {
-    const likedImages = LikedImageModel.find({})
+app.get('/liked-images', async (req, res) => {
+    const likedImages = await LikedImageModel.find({})
     console.log('Liked images:', likedImages)
     // This route can be used to display liked images if you implement a way to store them
     res.setHeader('Content-Type', 'text/html')
@@ -66,7 +65,7 @@ app.get('/liked-images', (req, res) => {
 })
 
 app.post('/like-image', (req, res) => {
-    // This route can be used to handle liking an image
+    // handle liking an image
     const likedImage = {
         title: req.body.title,
         explanation: req.body.explanation,
