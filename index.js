@@ -57,10 +57,12 @@ app.post('/pastImage', (req, res) => {
     })
 })
 
-app.get('liked-images', (req, res) => {
+app.get('/liked-images', (req, res) => {
+    const likedImages = LikedImageModel.find({})
+    console.log('Liked images:', likedImages)
     // This route can be used to display liked images if you implement a way to store them
     res.setHeader('Content-Type', 'text/html')
-    res.render('likedImages', { likedImages: likedImagesModel }) // Placeholder for liked images
+    res.render('liked-images', { likedImages: likedImages }) // Placeholder for liked images
 })
 
 app.post('/like-image', (req, res) => {
